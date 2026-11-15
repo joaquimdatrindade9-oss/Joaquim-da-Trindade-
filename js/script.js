@@ -8,7 +8,7 @@ form.addEventListener("submit", function(event) {
     const origem = document.getElementById("origem").value;
     const destino = document.getElementById("destino").value;
 
-    const mensagem = 
+    const mensagem =
 `🏍️ TRINDADE MOTO-TÁXI
 
 Novo pedido de transporte!
@@ -25,4 +25,5 @@ Destino: ${destino}`;
 
     window.open(link, "_blank");
 });
+
 
