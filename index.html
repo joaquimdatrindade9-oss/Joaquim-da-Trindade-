@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="pt">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>TRINDADE MOTO-TÁXI</title>
-<link rel="stylesheet" href="css/style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>TRINDADE MOTO-TÁXI</title>
+
+    <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
@@ -12,44 +14,114 @@
 <header>
     <div class="logo">🏍️</div>
     <h1>TRINDADE MOTO-TÁXI</h1>
-    <p>Rápido, seguro e ao seu destino.</p>
+    <p>Transporte rápido e seguro</p>
 </header>
 
-<section class="inicio">
-    <h2>Bem-vindo ao TRINDADE MOTO-TÁXI</h2>
-    <p>O seu transporte rápido e seguro no município do Cuito.</p>
-    <a href="#pedido" class="botao">Solicitar uma mota</a>
-</section>
+<main>
 
-<section id="pedido">
-    <h2>Solicitar serviço</h2>
+    <section id="inicio">
+        <h2>Bem-vindo à TRINDADE MOTO-TÁXI</h2>
 
-    <form id="formPedido">
-        <input type="text" id="nome" placeholder="Seu nome" required>
-        <input type="tel" id="telefone" placeholder="Seu telefone" required>
-        <input type="text" id="origem" placeholder="Local de partida" required>
-        <input type="text" id="destino" placeholder="Destino" required>
+        <p>
+            Serviço de moto-táxi rápido, seguro e disponível no
+            <strong>Cuito, Província do Bié</strong>.
+        </p>
 
-        <button type="submit">Enviar pedido pelo WhatsApp</button>
-    </form>
-</section>
+        <a href="#pedido" class="botao">
+            Fazer pedido
+        </a>
+    </section>
 
-<section class="servicos">
-    <h2>Os nossos serviços</h2>
-    <p>🏍️ Transporte de passageiros</p>
-    <p>📦 Serviço de entregas</p>
-    <p>📍 Localização GPS</p>
-</section>
+    <section id="pedido">
+
+        <h2>Fazer pedido de moto-táxi</h2>
+
+        <form id="formPedido">
+
+            <label for="nome">Nome</label>
+            <input
+                type="text"
+                id="nome"
+                name="nome"
+                placeholder="Digite o seu nome"
+                required
+            >
+
+            <label for="telefone">Telefone</label>
+            <input
+                type="tel"
+                id="telefone"
+                name="telefone"
+                placeholder="Digite o seu telefone"
+                required
+            >
+
+            <label for="origem">Local de partida</label>
+            <input
+                type="text"
+                id="origem"
+                name="origem"
+                placeholder="Onde está?"
+                required
+            >
+
+            <label for="destino">Destino</label>
+            <input
+                type="text"
+                id="destino"
+                name="destino"
+                placeholder="Para onde vai?"
+                required
+            >
+
+            <label for="municipio">Município</label>
+            <select id="municipio" name="municipio" required>
+                <option value="Cuito">Cuito</option>
+            </select>
+
+            <label for="provincia">Província</label>
+            <select id="provincia" name="provincia" required>
+                <option value="Bié">Bié</option>
+            </select>
+
+            <button type="submit">
+                📱 Enviar pedido pelo WhatsApp
+            </button>
+
+        </form>
+
+    </section>
+
+    <section id="contacto">
+
+        <h2>Contacto</h2>
+
+        <p>
+            Precisa de uma moto-táxi?
+        </p>
+
+        <a
+            href="tel:+244944902791"
+            class="botao"
+        >
+            📞 Ligar agora
+        </a>
+
+    </section>
+
+</main>
 
 <footer>
-    <p>TRINDADE MOTO-TÁXI © 2026</p>
-    <p>Município do Cuito - Bié</p>
+    <p>
+        © 2026 TRINDADE MOTO-TÁXI
+    </p>
+
+    <p>
+        Cuito — Província do Bié
+    </p>
 </footer>
 
 <script src="js/script.js"></script>
 
 </body>
 </html>
-
-0
-
