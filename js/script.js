@@ -9,21 +9,15 @@ form.addEventListener("submit", function(event) {
     const destino = document.getElementById("destino").value;
 
     const mensagem =
-`🏍️ TRINDADE MOTO-TÁXI
-
-Novo pedido de transporte!
-
-Nome: ${nome}
-Telefone: ${telefone}
-Origem: ${origem}
-Destino: ${destino}`;
+        "🏍️ *TRINDADE MOTO-TÁXI*%0A%0A" +
+        "👤 Nome: " + nome + "%0A" +
+        "📞 Telefone: " + telefone + "%0A" +
+        "📍 Origem: " + origem + "%0A" +
+        "🏁 Destino: " + destino;
 
     const numero = "244944902791";
 
-    const link = "https://wa.me/" + numero +
-                 "?text=" + encodeURIComponent(mensagem);
+    const url = "https://wa.me/" + numero + "?text=" + mensagem;
 
-    window.open(link, "_blank");
+    window.open(url, "_blank");
 });
-
-
