@@ -1,149 +1,449 @@
 <!DOCTYPE html>
 <html lang="pt">
 <head>
-    <meta name="google-site-verification" content="Pz6eQJ5xJUZam2KvdzKJb8p_6sKvSQe4mFoO3H9wTDk" />
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>TRINDADE MOTO-TÁXI</title>
+<title>TRINDADE MOTO-TÁXI | Cuito - Bié</title>
 
-<meta name="description" content="TRINDADE MOTO-TÁXI - serviço de moto-táxi rápido, seguro e confiável em Cuito, província do Bié, Angola.">
-<meta name="keywords" content="TRINDADE MOTO-TÁXI, moto-táxi Cuito, moto táxi Bié, transporte Cuito, moto-táxi Angola">
+<meta name="description" content="TRINDADE MOTO-TÁXI. Serviço de transporte rápido e seguro em Cuito, província do Bié, Angola.">
+
+<meta name="keywords" content="Moto-táxi Cuito, Moto-táxi Bié, TRINDADE MOTO-TÁXI">
+
 <meta name="author" content="TRINDADE MOTO-TÁXI">
 <meta name="robots" content="index, follow">
 
 <meta property="og:title" content="TRINDADE MOTO-TÁXI">
-<meta property="og:description" content="Moto-táxi rápido, seguro e confiável em Cuito, província do Bié.">
+<meta property="og:description" content="Transporte rápido e seguro em Cuito, Bié.">
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://joaquimdatrindade9-oss.github.io/Joaquim-da-Trindade-/">
 
+<style>
 
+* {
+    box-sizing: border-box;
+}
 
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f1f3f5;
+    color: #222;
+}
 
+header {
+    background: #111;
+    color: white;
+    text-align: center;
+    padding: 30px 15px;
+}
 
+.logo {
+    font-size: 55px;
+}
 
+header h1 {
+    color: #ffcc00;
+    margin: 10px;
+}
 
+main {
+    max-width: 550px;
+    margin: 20px auto;
+    padding: 15px;
+}
 
+section {
+    background: white;
+    padding: 22px;
+    margin-bottom: 20px;
+    border-radius: 12px;
+    box-shadow: 0 3px 10px #0001;
+}
 
+h2 {
+    color: #222;
+    text-align: center;
+}
 
+input {
+    width: 100%;
+    padding: 13px;
+    margin: 8px 0 15px;
+    border: 1px solid #ccc;
+    border-radius: 7px;
+    font-size: 16px;
+}
 
+label {
+    font-weight: bold;
+}
 
-    <link rel="stylesheet" href="css/style.css">
+button {
+    width: 100%;
+    padding: 14px;
+    margin-top: 10px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.botao {
+    background: #ffcc00;
+    color: #111;
+}
+
+.whatsapp {
+    background: #20c45a;
+    color: white;
+}
+
+.sms {
+    background: #2475d0;
+    color: white;
+}
+
+.localizacao {
+    background: #333;
+    color: white;
+}
+
+.disponivel {
+    color: green;
+    font-weight: bold;
+    text-align: center;
+    font-size: 20px;
+}
+
+.indisponivel {
+    color: red;
+    font-weight: bold;
+    text-align: center;
+    font-size: 20px;
+}
+
+footer {
+    background: #111;
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+
+</style>
 </head>
 
 <body>
 
 <header>
+
     <div class="logo">🏍️</div>
+
     <h1>TRINDADE MOTO-TÁXI</h1>
+
     <p>Transporte rápido e seguro</p>
+
 </header>
 
 <main>
 
-    <section id="inicio">
-        <h2>Bem-vindo à TRINDADE MOTO-TÁXI</h2>
+<section id="inicio">
 
-        <p>
-            Serviço de moto-táxi rápido, seguro e disponível no
-            <strong>Cuito, Província do Bié</strong>.
-        </p>
+    <h2>Bem-vindo!</h2>
 
-        <a href="#pedido" class="botao">
-            Fazer pedido
-        </a>
-    </section>
+    <p>
+        Seja bem-vindo à TRINDADE MOTO-TÁXI.
+        Estamos disponíveis para facilitar
+        as suas deslocações.
+    </p>
 
-    <section id="pedido">
+    <p>
+        📍 <strong>Cuito, Província do Bié</strong>
+    </p>
 
-        <h2>Fazer pedido de moto-táxi</h2>
+</section>
 
-        <form id="formPedido">
 
-            <label for="nome">Nome</label>
-            <input
-                type="text"
-                id="nome"
-                name="nome"
-                placeholder="Digite o seu nome"
-                required
-            >
+<section>
 
-            <label for="telefone">Telefone</label>
-            <input
-                type="tel"
-                id="telefone"
-                name="telefone"
-                placeholder="Digite o seu telefone"
-                required
-            >
+    <h2>Estado do serviço</h2>
 
-            <label for="origem">Local de partida</label>
-            <input
-                type="text"
-                id="origem"
-                name="origem"
-                placeholder="Onde está?"
-                required
-            >
+    <p id="statusDisponibilidade" class="disponivel">
+        🟢 DISPONÍVEL
+    </p>
 
-            <label for="destino">Destino</label>
-            <input
-                type="text"
-                id="destino"
-                name="destino"
-                placeholder="Para onde vai?"
-                required
-            >
+    <button class="botao" onclick="alterarDisponibilidade()">
+        Alterar disponibilidade
+    </button>
 
-            <label for="municipio">Município</label>
-            <select id="municipio" name="municipio" required>
-                <option value="Cuito">Cuito</option>
-            </select>
+</section>
 
-            <label for="provincia">Província</label>
-            <select id="provincia" name="provincia" required>
-                <option value="Bié">Bié</option>
-            </select>
 
-            <button type="submit">
-                📱 Enviar pedido pelo WhatsApp
-            </button>
+<section>
 
-        </form>
+    <h2>📍 Localização</h2>
 
-    </section>
+    <p id="resultadoLocalizacao">
+        Ainda não foi obtida nenhuma localização.
+    </p>
 
-    <section id="contacto">
+    <button class="localizacao" onclick="obterLocalizacao()">
+        Obter minha localização GPS
+    </button>
 
-        <h2>Contacto</h2>
+</section>
 
-        <p>
-            Precisa de uma moto-táxi?
-        </p>
 
-        <a
-            href="tel:+244944902791"
-            class="botao"
+<section id="pedido">
+
+    <h2>🏍️ Fazer pedido</h2>
+
+    <form id="formPedido">
+
+        <label>Nome completo</label>
+
+        <input
+            type="text"
+            id="nome"
+            placeholder="Digite o seu nome"
+            required
         >
-            📞 Ligar agora
-        </a>
 
-    </section>
+        <label>Telefone</label>
+
+        <input
+            type="tel"
+            id="telefone"
+            placeholder="Digite o seu telefone"
+            required
+        >
+
+        <label>Local de partida</label>
+
+        <input
+            type="text"
+            id="origem"
+            placeholder="Onde está?"
+            required
+        >
+
+        <label>Destino</label>
+
+        <input
+            type="text"
+            id="destino"
+            placeholder="Para onde pretende ir?"
+            required
+        >
+
+        <input
+            type="hidden"
+            id="municipio"
+            value="Cuito"
+        >
+
+        <input
+            type="hidden"
+            id="provincia"
+            value="Bié"
+        >
+
+        <button type="button"
+            class="localizacao"
+            onclick="obterLocalizacao()">
+            📍 Partilhar localização
+        </button>
+
+        <button type="submit" class="whatsapp">
+            📱 Pedir pelo WhatsApp
+        </button>
+
+        <button type="button"
+            class="sms"
+            onclick="enviarSMS()">
+            💬 Enviar SMS normal
+        </button>
+
+    </form>
+
+</section>
 
 </main>
 
-<footer>
-    <p>
-        © 2026 TRINDADE MOTO-TÁXI
-    </p>
 
-    <p>
-        Cuito — Província do Bié
-    </p>
+<footer>
+
+    <h3>TRINDADE MOTO-TÁXI</h3>
+
+    <p>Cuito - Província do Bié - Angola</p>
+
+    <p>Transporte rápido e seguro.</p>
+
 </footer>
 
-<script src="js/script.js"></script>
+
+<script>
+
+const numero = "2449444902791";
+
+let disponivel = true;
+
+let localizacao = "Não enviada";
+
+
+// DISPONIBILIDADE
+
+function alterarDisponibilidade() {
+
+    disponivel = !disponivel;
+
+    const status = document.getElementById(
+        "statusDisponibilidade"
+    );
+
+    if (disponivel) {
+
+        status.textContent = "🟢 DISPONÍVEL";
+
+        status.className = "disponivel";
+
+    } else {
+
+        status.textContent = "🔴 INDISPONÍVEL";
+
+        status.className = "indisponivel";
+
+    }
+
+}
+
+
+// LOCALIZAÇÃO GPS
+
+function obterLocalizacao() {
+
+    if (!navigator.geolocation) {
+
+        alert("GPS não suportado.");
+
+        return;
+
+    }
+
+    navigator.geolocation.getCurrentPosition(
+
+        function(position) {
+
+            const latitude = position.coords.latitude;
+
+            const longitude = position.coords.longitude;
+
+            localizacao =
+                "https://www.google.com/maps?q=" +
+                latitude + "," + longitude;
+
+            document.getElementById(
+                "resultadoLocalizacao"
+            ).innerHTML =
+                '<a href="' + localizacao +
+                '" target="_blank">Ver minha localização no mapa</a>';
+
+            alert("Localização obtida com sucesso!");
+
+        },
+
+        function() {
+
+            alert(
+                "Não foi possível obter a localização. Autorize o GPS."
+            );
+
+        }
+
+    );
+
+}
+
+
+// RECOLHER DADOS
+
+function obterMensagem() {
+
+    const nome = document.getElementById("nome").value;
+
+    const telefone = document.getElementById("telefone").value;
+
+    const origem = document.getElementById("origem").value;
+
+    const destino = document.getElementById("destino").value;
+
+    return (
+        "🏍️ TRINDADE MOTO-TÁXI\n\n" +
+        "👤 Nome: " + nome + "\n" +
+        "📞 Telefone: " + telefone + "\n" +
+        "📍 Origem: " + origem + "\n" +
+        "🏁 Destino: " + destino + "\n" +
+        "🏙️ Município: Cuito\n" +
+        "📌 Província: Bié\n" +
+        "📡 Estado: " +
+        (disponivel ? "Disponível" : "Indisponível") +
+        "\n🗺️ Localização: " + localizacao
+    );
+
+}
+
+
+// WHATSAPP
+
+document.getElementById("formPedido")
+.addEventListener("submit", function(event) {
+
+    event.preventDefault();
+
+    if (!disponivel) {
+
+        alert("O serviço está indisponível neste momento.");
+
+        return;
+
+    }
+
+    const mensagem = obterMensagem();
+
+    const url =
+        "https://wa.me/" +
+        numero +
+        "?text=" +
+        encodeURIComponent(mensagem);
+
+    window.open(url, "_blank");
+
+});
+
+
+// SMS NORMAL
+
+function enviarSMS() {
+
+    const form = document.getElementById("formPedido");
+
+    if (!form.reportValidity()) {
+        return;
+    }
+
+    const mensagem = obterMensagem();
+
+    const url =
+        "sms:" +
+        numero +
+        "?body=" +
+        encodeURIComponent(mensagem);
+
+    window.location.href = url;
+
+}
+
+</script>
 
 </body>
 </html>
