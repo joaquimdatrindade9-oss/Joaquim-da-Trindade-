@@ -39,30 +39,28 @@ header p {
     margin: 5px 0;
 }
 
-main {
+.container {
     max-width: 600px;
-    margin: auto;
-    padding: 15px;
+    margin: 20px auto;
+    padding: 0 15px;
 }
 
-section {
+.card {
     background: white;
     padding: 20px;
-    margin-bottom: 18px;
-    border-radius: 14px;
-    box-shadow: 0 3px 12px #0002;
+    border-radius: 12px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.12);
 }
 
 h2 {
-    color: #d40000;
     text-align: center;
     margin-top: 0;
 }
 
 label {
     display: block;
+    margin-top: 15px;
     font-weight: bold;
-    margin-top: 12px;
 }
 
 input,
@@ -70,171 +68,87 @@ select,
 textarea {
     width: 100%;
     padding: 13px;
-    margin-top: 7px;
-    border: 2px solid #ddd;
+    margin-top: 6px;
+    border: 1px solid #ccc;
     border-radius: 8px;
     font-size: 16px;
-    background: white;
-}
-
-input:focus,
-select:focus,
-textarea:focus {
-    outline: none;
-    border-color: #d40000;
 }
 
 textarea {
-    min-height: 90px;
     resize: vertical;
+    min-height: 80px;
 }
 
-button,
-.link-button {
-    width: 100%;
-    padding: 14px;
-    margin-top: 12px;
-    border: none;
-    border-radius: 9px;
-    font-size: 16px;
-    font-weight: bold;
-    cursor: pointer;
-    text-align: center;
-    text-decoration: none;
-    display: block;
-}
-
-.ligar {
-    background: #d40000;
-    color: white;
-}
-
-.ligar:hover {
-    background: #a80000;
-}
-
-.whatsapp {
-    background: #20c45a;
-    color: white;
-}
-
-.sms {
-    background: #111;
-    color: white;
-}
-
-.gps {
-    background: #d40000;
-    color: white;
-}
-
-.secundario {
-    background: #555;
-    color: white;
-}
-
-.servicos {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 12px;
-}
-
-.servico {
-    border: 3px solid #ddd;
-    background: #fafafa;
-    border-radius: 12px;
-    padding: 20px 10px;
-    text-align: center;
-    cursor: pointer;
-    font-weight: bold;
-    font-size: 16px;
-}
-
-.servico.ativo {
-    border-color: #d40000;
-    background: #fff0f0;
-}
-
-.servico .icone {
-    font-size: 40px;
-    display: block;
-    margin-bottom: 8px;
-}
-
-.tipo-escolhido {
-    text-align: center;
-    font-weight: bold;
-    color: #d40000;
-    margin-top: 15px;
-}
-
-.disponivel {
-    color: green;
-    text-align: center;
-    font-size: 20px;
-    font-weight: bold;
-}
-
-.indisponivel {
-    color: #d40000;
-    text-align: center;
-    font-size: 20px;
-    font-weight: bold;
-}
-
-.agendamento {
+.modos {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 10px;
+    margin-top: 10px;
 }
 
-#resultadoLocalizacao {
+.modo {
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    padding: 15px;
     text-align: center;
-    line-height: 1.6;
+    cursor: pointer;
+    background: #fafafa;
 }
 
-.preco {
+.modo input {
+    display: none;
+}
+
+.modo.ativo {
+    border-color: #d40000;
+    background: #ffeaea;
+}
+
+.modo strong {
+    display: block;
+    font-size: 17px;
+}
+
+.botao {
+    width: 100%;
+    padding: 15px;
+    margin-top: 20px;
+    border: none;
+    border-radius: 8px;
+    background: #d40000;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.botao:hover {
+    background: #a80000;
+}
+
+.ligar {
+    display: block;
+    text-align: center;
+    margin-top: 12px;
+    padding: 14px;
+    border-radius: 8px;
     background: #111;
     color: white;
-    padding: 15px;
-    border-radius: 10px;
-    text-align: center;
-    margin-top: 15px;
-}
-
-.preco strong {
-    color: #ff3333;
-    font-size: 22px;
-}
-
-.confirmacao {
-    display: none;
-    background: #e9ffe9;
-    border: 2px solid green;
-    color: #064d06;
+    text-decoration: none;
+    font-weight: bold;
 }
 
 footer {
+    text-align: center;
+    padding: 20px;
+    margin-top: 25px;
     background: #111;
     color: white;
-    text-align: center;
-    padding: 25px 15px;
-    border-top: 5px solid #d40000;
-}
-
-footer h3 {
-    color: #d40000;
+    font-size: 14px;
 }
 
 .hidden {
     display: none;
-}
-
-@media (max-width: 450px) {
-    .servicos,
-    .agendamento {
-        grid-template-columns: 1fr;
-    }
 }
 </style>
 </head>
@@ -242,59 +156,243 @@ footer h3 {
 <body>
 
 <header>
-
     <div class="logo">🏍️</div>
 
     <h1>TRINDADE MOTO-TÁXI</h1>
 
+    <p>Cuito - Província do Bié</p>
     <p>Transporte rápido, seguro e confiável</p>
-
-    <p>📍 Cuito — Província do Bié</p>
-
 </header>
 
-<main>
+<div class="container">
 
-<!-- APRESENTAÇÃO -->
+    <div class="card">
 
-<section>
+        <h2>Fazer Pedido</h2>
 
-    <h2>Bem-vindo</h2>
+        <form id="formPedido">
 
-    <p>
-        Bem-vindo à <strong>TRINDADE MOTO-TÁXI</strong>.
-        Escolha o serviço que deseja e faça o seu pedido
-        de forma rápida.
-    </p>
+            <label for="nome">Nome</label>
+            <input
+                type="text"
+                id="nome"
+                placeholder="Digite o seu nome"
+                required
+            >
 
-    <a
-        href="tel:+2449444902791"
-        class="link-button ligar">
-        📞 LIGAR AGORA
-    </a>
+            <label for="telefone">Telefone</label>
+            <input
+                type="tel"
+                id="telefone"
+                placeholder="Ex: 923000000"
+                required
+            >
 
-</section>
+            <label>Escolha o serviço</label>
+
+            <div class="modos">
+
+                <label class="modo ativo" id="modoTaxi">
+                    <input
+                        type="radio"
+                        name="servico"
+                        value="Taxi"
+                        checked
+                    >
+                    <strong>🏍️ Moto-Táxi</strong>
+                    <span>Deslocação de pessoa</span>
+                </label>
+
+                <label class="modo" id="modoEncomenda">
+                    <input
+                        type="radio"
+                        name="servico"
+                        value="Encomenda"
+                    >
+                    <strong>📦 Encomenda</strong>
+                    <span>Entrega de produtos</span>
+                </label>
+
+            </div>
+
+            <label for="origem">Local de partida</label>
+
+            <input
+                type="text"
+                id="origem"
+                placeholder="Onde devemos buscar?"
+                required
+            >
+
+            <label for="destino">Destino</label>
+
+            <input
+                type="text"
+                id="destino"
+                placeholder="Para onde vai?"
+                required
+            >
+
+            <div id="dadosEncomenda" class="hidden">
+
+                <label for="descricao">Descrição da encomenda</label>
+
+                <textarea
+                    id="descricao"
+                    placeholder="Descreva a encomenda"
+                ></textarea>
+
+            </div>
+
+            <label for="observacao">Observação</label>
+
+            <textarea
+                id="observacao"
+                placeholder="Alguma informação adicional?"
+            ></textarea>
+
+            <button type="submit" class="botao">
+                📲 Fazer Pedido
+            </button>
+
+        </form>
+
+        <a
+            href="tel:+244923000000"
+            class="ligar"
+        >
+            📞 Ligar para TRINDADE
+        </a>
+
+    </div>
+
+</div>
+
+<footer>
+    © 2026 TRINDADE MOTO-TÁXI<br>
+    Cuito - Província do Bié
+</footer>
+
+<script>
+
+const modoTaxi = document.getElementById("modoTaxi");
+const modoEncomenda = document.getElementById("modoEncomenda");
+const dadosEncomenda = document.getElementById("dadosEncomenda");
+
+const radios = document.querySelectorAll(
+    'input[name="servico"]'
+);
+
+radios.forEach(function(radio) {
+
+    radio.addEventListener("change", function() {
+
+        modoTaxi.classList.remove("ativo");
+        modoEncomenda.classList.remove("ativo");
+
+        if (this.value === "Taxi") {
+
+            modoTaxi.classList.add("ativo");
+            dadosEncomenda.classList.add("hidden");
+
+        } else {
+
+            modoEncomenda.classList.add("ativo");
+            dadosEncomenda.classList.remove("hidden");
+
+        }
+
+    });
+
+});
 
 
-<!-- DISPONIBILIDADE -->
+document.getElementById("formPedido")
+.addEventListener("submit", function(event) {
 
-<section>
+    event.preventDefault();
 
-    <h2>Estado do serviço</h2>
+    const nome =
+        document.getElementById("nome").value.trim();
 
-    <p
-        id="statusDisponibilidade"
-        class="disponivel">
-        🟢 DISPONÍVEL
-    </p>
+    const telefone =
+        document.getElementById("telefone").value.trim();
 
-</section>
+    const origem =
+        document.getElementById("origem").value.trim();
+
+    const destino =
+        document.getElementById("destino").value.trim();
+
+    const observacao =
+        document.getElementById("observacao").value.trim();
+
+    const servico =
+        document.querySelector(
+            'input[name="servico"]:checked'
+        ).value;
+
+    const descricao =
+        document.getElementById("descricao").value.trim();
 
 
-<!-- ESCOLHA DO SERVIÇO -->
+    let mensagem =
+        "🏍️ *TRINDADE MOTO-TÁXI*%0A%0A" +
 
-<section>
+        "👤 Nome: " + nome + "%0A" +
 
-    <h2>Escolha o serviço</h
+        "📞 Telefone: " + telefone + "%0A" +
 
+        "🛵 Serviço: " + servico + "%0A" +
+
+        "📍 Origem: " + origem + "%0A" +
+
+        "📍 Destino: " + destino + "%0A";
+
+
+    if (servico === "Encomenda") {
+
+        mensagem +=
+            "📦 Encomenda: " +
+            descricao +
+            "%0A";
+
+    }
+
+
+    mensagem +=
+        "📝 Observação: " +
+        observacao;
+
+
+    /*
+       TROQUE ESTE NÚMERO PELO NÚMERO
+       OFICIAL DO TRINDADE MOTO-TÁXI.
+       
+       Formato:
+       244 + número
+       
+       Exemplo:
+       244923000000
+    */
+
+    const numeroWhatsApp =
+        "244923000000";
+
+
+    const url =
+        "https://wa.me/" +
+        numeroWhatsApp +
+        "?text=" +
+        mensagem;
+
+
+    window.open(url, "_blank");
+
+});
+
+</script>
+
+</body>
+</html>
 
