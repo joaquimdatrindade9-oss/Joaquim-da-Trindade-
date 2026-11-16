@@ -156,12 +156,15 @@ footer {
 <body>
 
 <header>
+
     <div class="logo">🏍️</div>
 
     <h1>TRINDADE MOTO-TÁXI</h1>
 
     <p>Cuito - Província do Bié</p>
+
     <p>Transporte rápido, seguro e confiável</p>
+
 </header>
 
 <div class="container">
@@ -173,6 +176,7 @@ footer {
         <form id="formPedido">
 
             <label for="nome">Nome</label>
+
             <input
                 type="text"
                 id="nome"
@@ -181,10 +185,11 @@ footer {
             >
 
             <label for="telefone">Telefone</label>
+
             <input
                 type="tel"
                 id="telefone"
-                placeholder="Ex: 923000000"
+                placeholder="Ex: 944902791"
                 required
             >
 
@@ -193,24 +198,32 @@ footer {
             <div class="modos">
 
                 <label class="modo ativo" id="modoTaxi">
+
                     <input
                         type="radio"
                         name="servico"
                         value="Taxi"
                         checked
                     >
+
                     <strong>🏍️ Moto-Táxi</strong>
+
                     <span>Deslocação de pessoa</span>
+
                 </label>
 
                 <label class="modo" id="modoEncomenda">
+
                     <input
                         type="radio"
                         name="servico"
                         value="Encomenda"
                     >
+
                     <strong>📦 Encomenda</strong>
+
                     <span>Entrega de produtos</span>
+
                 </label>
 
             </div>
@@ -235,7 +248,9 @@ footer {
 
             <div id="dadosEncomenda" class="hidden">
 
-                <label for="descricao">Descrição da encomenda</label>
+                <label for="descricao">
+                    Descrição da encomenda
+                </label>
 
                 <textarea
                     id="descricao"
@@ -244,7 +259,9 @@ footer {
 
             </div>
 
-            <label for="observacao">Observação</label>
+            <label for="observacao">
+                Observação
+            </label>
 
             <textarea
                 id="observacao"
@@ -258,7 +275,7 @@ footer {
         </form>
 
         <a
-            href="tel:+244923000000"
+            href="tel:+244944902791"
             class="ligar"
         >
             📞 Ligar para TRINDADE
@@ -269,35 +286,50 @@ footer {
 </div>
 
 <footer>
+
     © 2026 TRINDADE MOTO-TÁXI<br>
+
     Cuito - Província do Bié
+
 </footer>
 
 <script>
 
-const modoTaxi = document.getElementById("modoTaxi");
-const modoEncomenda = document.getElementById("modoEncomenda");
-const dadosEncomenda = document.getElementById("dadosEncomenda");
+const modoTaxi =
+    document.getElementById("modoTaxi");
 
-const radios = document.querySelectorAll(
-    'input[name="servico"]'
-);
+const modoEncomenda =
+    document.getElementById("modoEncomenda");
+
+const dadosEncomenda =
+    document.getElementById("dadosEncomenda");
+
+
+const radios =
+    document.querySelectorAll(
+        'input[name="servico"]'
+    );
+
 
 radios.forEach(function(radio) {
 
     radio.addEventListener("change", function() {
 
         modoTaxi.classList.remove("ativo");
+
         modoEncomenda.classList.remove("ativo");
+
 
         if (this.value === "Taxi") {
 
             modoTaxi.classList.add("ativo");
+
             dadosEncomenda.classList.add("hidden");
 
         } else {
 
             modoEncomenda.classList.add("ativo");
+
             dadosEncomenda.classList.remove("hidden");
 
         }
@@ -307,10 +339,12 @@ radios.forEach(function(radio) {
 });
 
 
-document.getElementById("formPedido")
+document
+.getElementById("formPedido")
 .addEventListener("submit", function(event) {
 
     event.preventDefault();
+
 
     const nome =
         document.getElementById("nome").value.trim();
@@ -365,19 +399,8 @@ document.getElementById("formPedido")
         observacao;
 
 
-    /*
-       TROQUE ESTE NÚMERO PELO NÚMERO
-       OFICIAL DO TRINDADE MOTO-TÁXI.
-       
-       Formato:
-       244 + número
-       
-       Exemplo:
-       244923000000
-    */
-
     const numeroWhatsApp =
-        "244923000000";
+        "244944902791";
 
 
     const url =
@@ -395,4 +418,3 @@ document.getElementById("formPedido")
 
 </body>
 </html>
-
