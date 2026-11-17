@@ -1,126 +1,104 @@
-// ==================================
-// CONFIGURAÇÕES DO SISTEMA
-// ==================================
-
 const NUMERO_WHATSAPP = "244944902791";
 
+let tipoServico = "Moto-Táxi";
 
-// ==================================
-// ELEMENTOS DO SITE
-// ==================================
-
-const formulario = document.getElementById("formPedido");
-
-const cartaoTaxi = document.getElementById("cartaoTaxi");
-
-const cartaoEncomenda = document.getElementById("cartaoEncomenda");
-
-const camposEncomenda = document.getElementById("camposEncomenda");
+const btnTaxi = document.getElementById("btnTaxi");
+const btnEncomenda = document.getElementById("btnEncomenda");
 
 const camposTaxi = document.getElementById("camposTaxi");
+const camposEncomenda = document.getElementById("camposEncomenda");
 
+const form = document.getElementById("formPedido");
 const resumo = document.getElementById("resumo");
 
-const conteudoResumo = document.getElementById("conteudoResumo");
-
-const enviarWhatsApp = document.getElementById("enviarWhatsApp");
+const btnGPS = document.getElementById("btnGPS");
 
 
-// ==================================
-// ESCOLHA DO SERVIÇO
-// ==================================
+/* =========================
+   ESCOLHER MOTO-TÁXI
+========================= */
 
-const servicos = document.querySelectorAll(
-    'input[name="servico"]'
-);
+btnTaxi.addEventListener("click", function () {
 
-servicos.forEach(function(servico) {
+    tipoServico = "Moto-Táxi";
 
-    servico.addEventListener("change", function() {
+    btnTaxi.classList.add("ativo");
+    btnEncomenda.classList.remove("ativo");
 
-        resumo.classList.add("escondido");
-
-        if (this.value === "Encomenda") {
-
-            camposEncomenda.classList.remove("escondido");
-
-            camposTaxi.classList.add("escondido");
-
-            document.getElementById("descricao").required = true;
-
-            cartaoEncomenda.classList.add("ativo");
-
-            cartaoTaxi.classList.remove("ativo");
-
-        } else {
-
-            camposEncomenda.classList.add("escondido");
-
-            camposTaxi.classList.remove("escondido");
-
-            document.getElementById("descricao").required = false;
-
-            cartaoTaxi.classList.add("ativo");
-
-            cartaoEncomenda.classList.remove("ativo");
-
-        }
-
-    });
+    camposTaxi.classList.remove("escondido");
+    camposEncomenda.classList.add("escondido");
 
 });
 
 
-// ==================================
-// LOCALIZAÇÃO GPS
-// ==================================
+/* =========================
+   ESCOLHER ENCOMENDA
+========================= */
 
-document.getElementById("botaoGPS")
-.addEventListener("click", function() {
+btnEncomenda.addEventListener("click", function () {
 
-    const estadoGPS = document.getElementById("estadoGPS");
+    tipoServico = "Encomenda";
 
-    const origem = document.getElementById("origem");
+    btnEncomenda.classList.add("ativo");
+    btnTaxi.classList.remove("ativo");
+
+    camposEncomenda.classList.remove("escondido");
+    camposTaxi.classList.add("escondido");
+
+});
+
+
+/* =========================
+   GPS / LOCALIZAÇÃO
+========================= */
+
+btnGPS.addEventListener("click", function () {
 
     if (!navigator.geolocation) {
 
-        estadoGPS.textContent =
-            "O seu navegador não suporta GPS.";
+        alert(
+            "O seu navegador não suporta localização GPS."
+        );
 
         return;
-
     }
 
-    estadoGPS.textContent =
-        "A obter a sua localização...";
+    btnGPS.textContent =
+        "📍 A obter localização...";
 
     navigator.geolocation.getCurrentPosition(
 
-        function(posicao) {
+        function (position) {
 
-            const latitude = posicao.coords.latitude;
+            const latitude =
+                position.coords.latitude;
 
-            const longitude = posicao.coords.longitude;
+            const longitude =
+                position.coords.longitude;
 
-            origem.value =
+            const mapa =
                 "https://www.google.com/maps?q=" +
-                latitude + "," + longitude;
+                latitude +
+                "," +
+                longitude;
 
-            estadoGPS.textContent =
-                "Localização obtida com sucesso!";
+            document.getElementById("origem").value =
+                mapa;
 
-        },
-
-        function() {
-
-            estadoGPS.textContent =
-                "Não foi possível obter a localização. Verifique as permissões do GPS.";
+            btnGPS.textContent =
+                "✅ Localização obtida";
 
         },
 
-        {
-            enableHighAccuracy: true,
-            timeout: 15000
+        function () {
+
+            alert(
+                "Não foi possível obter a localização.\n\n" +
+                "Ative o GPS e permita o acesso à localização."
+            );
+
+            btnGPS.textContent =
+                "🛰️ Usar minha localização GPS";
         }
 
     );
@@ -128,13 +106,14 @@ document.getElementById("botaoGPS")
 });
 
 
-// ==================================
-// CONFIRMAR PEDIDO
-// ==================================
+/* =========================
+   ENVIAR PEDIDO
+========================= */
 
-formulario.addEventListener("submit", function(event) {
+form.addEventListener("submit", function (event) {
 
     event.preventDefault();
+
 
     const nome =
         document.getElementById("nome").value.trim();
@@ -148,171 +127,191 @@ formulario.addEventListener("submit", function(event) {
     const destino =
         document.getElementById("destino").value.trim();
 
-    const observacao =
-        document.getElementById("observacao").value.trim();
+    const preco =
+        document.getElementById("preco").value.trim();
 
     const pagamento =
         document.getElementById("pagamento").value;
 
-    const servico =
-        document.querySelector(
-            'input[name="servico"]:checked'
-        ).value;
-
-    const descricao =
-        document.getElementById("descricao").value.trim();
-
-    const passageiros =
-        document.getElementById("passageiros").value;
+    const observacoes =
+        document.getElementById("observacoes").value.trim();
 
 
-    // VERIFICAR CAMPOS OBRIGATÓRIOS
+    /* VERIFICAR CAMPOS OBRIGATÓRIOS */
 
-    if (!nome || !telefone || !origem || !destino) {
+    if (
+        !nome ||
+        !telefone ||
+        !origem ||
+        !destino
+    ) {
 
-        alert("Preencha todos os campos obrigatórios.");
-
-        return;
-
-    }
-
-    if (servico === "Encomenda" && !descricao) {
-
-        alert("Descreva a sua encomenda.");
-
-        return;
-
-    }
-
-
-    // CONSTRUIR RESUMO
-
-    let dados = {
-
-        nome,
-        telefone,
-        servico,
-        origem,
-        destino,
-        observacao,
-        pagamento,
-        descricao,
-        passageiros
-
-    };
-
-
-    let mensagem =
-
-        "🏍️ TRINDADE MOTO-TÁXI\n\n" +
-
-        "👤 Nome: " + nome + "\n" +
-
-        "📞 Telefone: " + telefone + "\n" +
-
-        "🛵 Serviço: " + servico + "\n" +
-
-        "📍 Origem: " + origem + "\n" +
-
-        "🎯 Destino: " + destino + "\n";
-
-
-    if (servico === "Encomenda") {
-
-        mensagem +=
-            "📦 Descrição: " + descricao + "\n";
-
-    } else {
-
-        mensagem +=
-            "👥 Passageiros: " + passageiros + "\n";
-
-    }
-
-
-    mensagem +=
-
-        "💰 Pagamento: " + pagamento + "\n" +
-
-        "📝 Observação: " + observacao + "\n\n" +
-
-        "Preço: A confirmar com o motorista.";
-
-
-    // MOSTRAR RESUMO
-
-    conteudoResumo.replaceChildren();
-
-    const linhas = [
-
-        ["Nome", nome],
-
-        ["Telefone", telefone],
-
-        ["Serviço", servico],
-
-        ["Origem", origem],
-
-        ["Destino", destino],
-
-        ["Descrição", servico === "Encomenda" ? descricao : "Não aplicável"],
-
-        ["Passageiros", servico === "Moto-Táxi" ? passageiros : "Não aplicável"],
-
-        ["Pagamento", pagamento],
-
-        ["Observação", observacao || "Nenhuma"],
-
-        ["Preço", "A confirmar"]
-
-    ];
-
-    linhas.forEach(function(item) {
-
-        const paragrafo = document.createElement("p");
-
-        const titulo = document.createElement("strong");
-
-        titulo.textContent = item[0] + ": ";
-
-        paragrafo.appendChild(titulo);
-
-        paragrafo.appendChild(
-            document.createTextNode(item[1])
+        alert(
+            "Preencha o nome, telefone, origem e destino."
         );
 
-        conteudoResumo.appendChild(paragrafo);
+        return;
+    }
 
-    });
+
+    let detalhes = "";
 
 
-    // PREPARAR WHATSAPP
+    /* =========================
+       DADOS DO MOTO-TÁXI
+    ========================= */
 
-    enviarWhatsApp.href =
+    if (tipoServico === "Moto-Táxi") {
+
+        const passageiros =
+            document.getElementById("passageiros").value;
+
+        detalhes =
+            "👥 Passageiros: " +
+            passageiros;
+
+    }
+
+
+    /* =========================
+       DADOS DA ENCOMENDA
+    ========================= */
+
+    else {
+
+        const descricao =
+            document
+                .getElementById("descricao")
+                .value
+                .trim();
+
+        const quantidade =
+            document.getElementById("quantidade").value;
+
+        detalhes =
+            "📦 Descrição: " +
+            (descricao || "Não informado") +
+            "\n" +
+
+            "🔢 Quantidade: " +
+            quantidade;
+
+    }
+
+
+    /* =========================
+       CRIAR RESUMO
+    ========================= */
+
+    resumo.innerHTML = `
+
+        <p>
+            <strong>🚦 Serviço:</strong>
+            ${tipoServico}
+        </p>
+
+        <p>
+            <strong>👤 Nome:</strong>
+            ${nome}
+        </p>
+
+        <p>
+            <strong>📞 Telefone:</strong>
+            ${telefone}
+        </p>
+
+        <p>
+            <strong>📍 Origem:</strong>
+            ${origem}
+        </p>
+
+        <p>
+            <strong>🎯 Destino:</strong>
+            ${destino}
+        </p>
+
+        <p>
+            ${detalhes.replace(/\n/g, "<br>")}
+        </p>
+
+        <p>
+            <strong>💰 Preço:</strong>
+            ${preco || "A confirmar"}
+        </p>
+
+        <p>
+            <strong>💳 Pagamento:</strong>
+            ${pagamento || "A combinar"}
+        </p>
+
+        <p>
+            <strong>📝 Observações:</strong>
+            ${observacoes || "Nenhuma"}
+        </p>
+
+    `;
+
+
+    /* =========================
+       MENSAGEM WHATSAPP
+    ========================= */
+
+    const mensagem =
+
+        "🏍️ *TRINDADE MOTO-TÁXI*" +
+        "\n\n" +
+
+        "📋 *NOVO PEDIDO*" +
+        "\n\n" +
+
+        "🚦 Serviço: " +
+        tipoServico +
+        "\n\n" +
+
+        "👤 Nome: " +
+        nome +
+        "\n" +
+
+        "📞 Telefone: " +
+        telefone +
+        "\n\n" +
+
+        "📍 Origem: " +
+        origem +
+        "\n" +
+
+        "🎯 Destino: " +
+        destino +
+        "\n\n" +
+
+        detalhes +
+        "\n\n" +
+
+        "💰 Preço: " +
+        (preco || "A confirmar") +
+        "\n" +
+
+        "💳 Pagamento: " +
+        (pagamento || "A combinar") +
+        "\n\n" +
+
+        "📝 Observações: " +
+        (observacoes || "Nenhuma") +
+        "\n\n" +
+
+        "📍 Cuito — Província do Bié";
+
+
+    const url =
 
         "https://wa.me/" +
-
         NUMERO_WHATSAPP +
-
         "?text=" +
-
         encodeURIComponent(mensagem);
 
 
-    resumo.classList.remove("escondido");
+    /* ABRIR WHATSAPP */
 
-    resumo.scrollIntoView({
-
-        behavior: "smooth",
-
-        block: "start"
-
-    });
+    window.open(url, "_blank");
 
 });
-
-
-// ==================================
-// FIM DO SISTEMA
-// ==================================
-
