@@ -1,12 +1,10 @@
 <!DOCTYPE html>
 <html lang="pt">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>TRINDADE MOTO-TÁXI</title>
-
-    <link rel="stylesheet" href="css/style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TRINDADE MOTO-TÁXI</title>
+<link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
@@ -14,156 +12,42 @@
 <header>
     <div class="logo">🏍️</div>
     <h1>TRINDADE MOTO-TÁXI</h1>
-    <p>Cuito — Província do Bié</p>
-    <p class="estado">🟢 Serviço disponível</p>
+    <p>Rápido, seguro e ao seu destino.</p>
 </header>
 
-<main>
+<section class="inicio">
+    <h2>Bem-vindo ao TRINDADE MOTO-TÁXI</h2>
+    <p>O seu transporte rápido e seguro no município do Cuito.</p>
+    <a href="#pedido" class="botao">Solicitar uma mota</a>
+</section>
 
-    <!-- ESCOLHA DO SERVIÇO -->
-    <section class="card">
-        <h2>Escolha o serviço</h2>
+<section id="pedido">
+    <h2>Solicitar serviço</h2>
 
-        <div class="opcoes-servico">
+    <form id="formPedido">
+        <input type="text" id="nome" placeholder="Seu nome" required>
+        <input type="tel" id="telefone" placeholder="Seu telefone" required>
+        <input type="text" id="origem" placeholder="Local de partida" required>
+        <input type="text" id="destino" placeholder="Destino" required>
 
-            <button type="button" id="btnTaxi" class="servico ativo">
-                🏍️
-                <strong>Moto-Táxi</strong>
-                <span>Deslocação de pessoa</span>
-            </button>
+        <button type="submit">Enviar pedido pelo WhatsApp</button>
+    </form>
+</section>
 
-            <button type="button" id="btnEncomenda" class="servico">
-                📦
-                <strong>Encomenda</strong>
-                <span>Entrega de produtos</span>
-            </button>
+<section class="servicos">
+    <h2>Os nossos serviços</h2>
+    <p>🏍️ Transporte de passageiros</p>
+    <p>📦 Serviço de entregas</p>
+    <p>📍 Localização GPS</p>
+</section>
 
-        </div>
-    </section>
+<footer>
+    <p>TRINDADE MOTO-TÁXI © 2026</p>
+    <p>Município do Cuito - Bié</p>
+</footer>
 
+<script src="js/script.js"></script>
 
-    <!-- FORMULÁRIO -->
-    <section class="card">
-
-        <h2>📋 Dados do pedido</h2>
-
-        <form id="formPedido">
-
-            <label for="nome">Nome completo</label>
-            <input
-                type="text"
-                id="nome"
-                placeholder="Digite o seu nome"
-                required
-            >
-
-            <label for="telefone">Número de telefone</label>
-            <input
-                type="tel"
-                id="telefone"
-                placeholder="Ex: 944902791"
-                required
-            >
-
-
-            <label for="origem">📍 Local de partida / recolha</label>
-
-            <input
-                type="text"
-                id="origem"
-                placeholder="Onde devemos buscar?"
-                required
-            >
-
-            <button type="button" id="btnGPS" class="gps">
-                🛰️ Usar minha localização GPS
-            </button>
-
-
-            <label for="destino">🎯 Destino / local de entrega</label>
-
-            <input
-                type="text"
-                id="destino"
-                placeholder="Para onde vai?"
-                required
-            >
-
-
-            <!-- OPÇÕES DO MOTO-TÁXI -->
-
-            <div id="camposTaxi">
-
-                <label for="passageiros">
-                    👥 Número de passageiros
-                </label>
-
-                <select id="passageiros">
-
-                    <option value="1">1 passageiro</option>
-                    <option value="2">2 passageiros</option>
-
-                </select>
-
-            </div>
-
-
-            <!-- OPÇÕES DE ENCOMENDA -->
-
-            <div id="camposEncomenda" class="escondido">
-
-                <label for="descricao">
-                    📦 Descrição da encomenda
-                </label>
-
-                <textarea
-                    id="descricao"
-                    placeholder="Descreva a encomenda"
-                ></textarea>
-
-                <label for="quantidade">
-                    🔢 Quantidade
-                </label>
-
-                <input
-                    type="number"
-                    id="quantidade"
-                    min="1"
-                    value="1"
-                >
-
-            </div>
-
-
-            <label for="preco">
-                💰 Preço / tarifa
-            </label>
-
-            <input
-                type="text"
-                id="preco"
-                placeholder="A confirmar com o motorista"
-            >
-
-
-            <label for="pagamento">
-                💳 Forma de pagamento
-            </label>
-
-            <select id="pagamento">
-
-                <option value="">
-                    Escolher forma de pagamento
-                </option>
-
-                <option value="Dinheiro">
-                    💵 Dinheiro
-                </option>
-
-                <option value="Transferência bancária">
-                    🏦 Transferência bancária
-                </option>
-
-                <option value="Multicaixa Express
-
+</body>
+</html>
 
